@@ -144,5 +144,33 @@
   </span>
 </a>
 <!-- /WhatsApp FAB -->
+<!-- aa-soon (React) -->
+<style id="aa-soon-react-css">
+.aa-soon{background:#ede7da!important;color:#6f6149!important;border:1px solid #ddd2bc!important;
+box-shadow:none!important;cursor:default!important;pointer-events:none;display:inline-block;
+border-radius:999px;padding:16px 26px;font-weight:600;letter-spacing:.02em;text-align:center}
+@media(min-width:640px){.aa-soon{font-size:17px;padding:17px 34px}}
+</style>
+<script id="aa-soon-react-js">
+(function(){
+  var RX=/checkout\.thebank\.com\.br|[a-z0-9-]*chkt/i;
+  function swap(){
+    var as=document.querySelectorAll("a[href]");
+    for(var i=0;i<as.length;i++){
+      var a=as[i];
+      if(!RX.test(a.getAttribute("href")||""))continue;
+      var s=document.createElement("span");
+      s.className=(a.className?a.className+" ":"")+"aa-soon";
+      s.setAttribute("aria-disabled","true");
+      s.textContent="Coming soon";
+      a.parentNode.replaceChild(s,a);
+    }
+  }
+  function boot(){swap();new MutationObserver(swap).observe(document.body,{childList:true,subtree:true});}
+  if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",boot);
+  else boot();
+})();
+</script>
+<!-- /aa-soon (React) -->
 </body>
 </html>
