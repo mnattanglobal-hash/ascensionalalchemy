@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Let Go for Good — Ascensional Alchemy</title>
+<meta name="description" content="There's a person you can't stop thinking about. Watch this before you spend one more day like this.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS60JZBFM7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-PS60JZBFM7");
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init", "1371442984885022");
+fbq("track", "PageView");
+</script>
+
+<style>
+:root{
+  --bg:#0E0B08; --panel:#171208; --ink:#F3EAD8; --muted:#B7A788;
+  --gold:#D8AE5E; --gold-deep:#B08030; --line:rgba(216,174,94,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:Inter,system-ui,sans-serif;
+  display:flex; flex-direction:column; align-items:center;
+  min-height:100svh; padding:20px 16px 48px; text-align:center;
+}
+.brand{margin:6px 0 18px}
+.brand img{height:34px; width:auto; opacity:.92}
+h1{
+  font-family:"Cormorant Garamond",Georgia,serif; font-weight:700;
+  font-size:clamp(26px,5.4vw,44px); line-height:1.12; letter-spacing:-.01em;
+  max-width:21ch; margin:0 auto 6px; text-wrap:balance;
+}
+.sub{
+  font-family:"Cinzel",Georgia,serif; font-size:11px; letter-spacing:.22em;
+  text-transform:uppercase; color:var(--gold); margin-bottom:18px;
+}
+.player{
+  position:relative; width:min(860px,100%);
+  border:1px solid var(--line); border-radius:10px; overflow:hidden;
+  background:#000; box-shadow:0 22px 70px rgba(0,0,0,.55);
+}
+.player video{display:block; width:100%; height:auto}
+.sound{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  background:rgba(10,7,4,.35); cursor:pointer; border:0; width:100%;
+}
+.sound span{
+  font-family:Inter,sans-serif; font-weight:600; font-size:15px; color:#fff;
+  background:rgba(14,11,8,.82); border:1px solid var(--line);
+  padding:14px 22px; border-radius:999px; display:inline-flex; gap:10px; align-items:center;
+}
+.sound[hidden]{display:none!important}
+.offer{margin-top:26px; width:min(560px,100%)}
+.offer[hidden]{display:none!important}
+.price{
+  font-family:"Cormorant Garamond",Georgia,serif; margin-bottom:14px;
+}
+.price s{color:var(--muted); font-size:20px; margin-right:10px}
+.price b{color:var(--gold); font-size:44px; font-weight:700}
+.buy{
+  display:block; width:100%;
+  font-family:Inter,sans-serif; font-weight:600; font-size:17px; letter-spacing:.04em;
+  color:#1d1405; text-decoration:none; text-transform:uppercase;
+  background:linear-gradient(180deg,#E8C377,#B08030);
+  padding:18px 26px; border-radius:10px;
+  box-shadow:0 10px 34px rgba(176,128,48,.35);
+  animation:pulse 2.4s ease-in-out infinite;
+}
+.buy:active{transform:translateY(1px)}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
+@media (prefers-reduced-motion:reduce){.buy{animation:none}}
+.fine{margin-top:12px; font-size:13px; color:var(--muted)}
+footer{margin-top:auto; padding-top:36px; font-size:12px; color:var(--muted); opacity:.8}
+</style>
+</head>
+<body>
+
+<div class="brand"><img src="../let-go/img/Alquimia-Logo-Horizontal-OffWhite.png" alt="Ascensional Alchemy"></div>
+
+<h1>You know it's over. But the person won't leave your head.</h1>
+<p class="sub">Watch — this is for you</p>
+
+<div class="player">
+  <video id="vsl" src="../let-go/vsl.mp4" poster="../let-go/img/vsl_poster.jpg"
+         autoplay muted playsinline preload="metadata"></video>
+  <button class="sound" id="sound" type="button" aria-label="Turn on sound and restart">
+    <span>🔊&nbsp; Tap to turn on sound</span>
+  </button>
+</div>
+
+<div class="offer" id="offer" hidden>
+  <p class="price"><s>$77</s><b>$29</b></p>
+  <a class="buy" id="buy" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10">
+    I want to let go for good
+  </a>
+  <p class="fine">Instant access · 7-day unconditional guarantee · card or PayPal</p>
+</div>
+
+<footer>Ascensional Alchemy · Durga Schacht Saraswati</footer>
+
+<script>
+(function () {
+  var REVEAL_AT = 258; /* segundo em que a oferta é apresentada no vídeo */
+  var v = document.getElementById("vsl");
+  var sound = document.getElementById("sound");
+  var offer = document.getElementById("offer");
+  var shown = false;
+
+  function reveal(source) {
+    if (shown) return;
+    shown = true;
+    offer.hidden = false;
+    try { localStorage.setItem("lgfg_cta", "1"); } catch (e) {}
+    if (window.VSLT) VSLT.send("cta_shown", { src: source });
+    if (window.fbq) fbq("trackCustom", "VSLOfferShown");
+    if (window.gtag) gtag("event", "vsl_offer_shown");
+  }
+
+  /* quem já chegou na oferta numa visita anterior não espera de novo */
+  try { if (localStorage.getItem("lgfg_cta") === "1") reveal("returning"); } catch (e) {}
+
+  v.addEventListener("timeupdate", function () {
+    if (v.currentTime >= REVEAL_AT) reveal("video");
+  });
+  v.addEventListener("ended", function () { reveal("ended"); });
+
+  sound.addEventListener("click", function () {
+    v.muted = false;
+    v.currentTime = 0;
+    v.play();
+    sound.hidden = true;
+  });
+
+  /* depois do som ligado, clique no vídeo pausa/retoma */
+  v.addEventListener("click", function () {
+    if (sound.hidden) { v.paused ? v.play() : v.pause(); }
+  });
+
+  document.getElementById("buy").addEventListener("click", function () {
+    if (window.fbq) fbq("track", "InitiateCheckout", { value: 29, currency: "USD" });
+    if (window.gtag) gtag("event", "begin_checkout", { value: 29, currency: "USD" });
+  });
+})();
+</script>
+<script src="../let-go/vsl-track.js"></script>
+</body>
+</html>
