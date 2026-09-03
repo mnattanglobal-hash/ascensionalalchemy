@@ -23,6 +23,7 @@ gtag("config", "G-PS60JZBFM7");
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
 fbq("init", "1371442984885022");
 fbq("track", "PageView");
+fbq("track", "ViewContent", {content_name:"Let Go for Good", content_ids:["8111795"], content_type:"product", value:29, currency:"USD"});
 </script>
 
 <style>
@@ -132,7 +133,7 @@ footer{padding:36px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)
 
     <span class="promo-pill">Launch promotion</span>
     <p class="price-line"><s>$77</s><b>$29</b></p>
-    <a class="buy cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10">I want to let go for good</a>
+    <a class="buy cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10&src=lpb">I want to let go for good</a>
     <p class="fine">Instant access · secure payment · 7-day unconditional guarantee</p>
   </div>
 </section>
@@ -205,7 +206,7 @@ footer{padding:36px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)
       </ul>
       <span class="promo-pill">Launch promotion</span>
       <p class="price-line"><s>$77</s><b>$29</b></p>
-      <a class="buy cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10">I want to start now</a>
+      <a class="buy cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10&src=lpb">I want to start now</a>
       <p class="fine">One-time payment · card or PayPal · taxes included</p>
     </div>
 
@@ -289,7 +290,7 @@ footer{padding:36px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)
     <p><b>You don't have to wait a year like I did.</b></p>
     <span class="promo-pill">Launch promotion</span>
     <p class="price-line"><s>$77</s><b>$29</b></p>
-    <a class="buy cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10">Let go for good</a>
+    <a class="buy cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10&src=lpb">Let go for good</a>
     <p class="fine">Instant access · secure payment · 7-day unconditional guarantee</p>
   </div>
 </section>
@@ -299,7 +300,7 @@ footer{padding:36px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)
 <!-- STICKY MOBILE -->
 <div class="sticky" id="sticky" aria-hidden="true">
   <span class="p"><s>$77</s><b>$29</b></span>
-  <a class="cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10">I want this</a>
+  <a class="cta" href="https://pay.hotmart.com/T106709576Q?off=mulx6tqy&checkoutMode=10&src=lpb">I want this</a>
 </div>
 
 <script>
@@ -323,6 +324,17 @@ footer{padding:36px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)
       bar.setAttribute("aria-hidden", String(vis));
     }, { threshold: 0 }).observe(hero);
   }
+
+  /* atribuicao: repassa o criativo do anuncio para a Hotmart via sck */
+  (function () {
+    var q = new URLSearchParams(location.search);
+    var sck = q.get("utm_content") || q.get("utm_term") || q.get("utm_campaign");
+    if (!sck) return;
+    sck = String(sck).replace(/[^A-Za-z0-9_.-]/g, "_").slice(0, 80);
+    document.querySelectorAll("a[href*='pay.hotmart.com']").forEach(function (a) {
+      a.href = a.href + "&sck=" + encodeURIComponent(sck);
+    });
+  })();
 
   /* eventos de checkout nos CTAs */
   document.querySelectorAll("a.cta").forEach(function (a) {
