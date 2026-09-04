@@ -70,6 +70,13 @@ b,strong{color:var(--ink)}
 .lede b{color:var(--ink)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
 .chip{font-family:Cinzel,Georgia,serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+.hero-list{display:none}
+@media (min-width:940px){
+  .hero-list{display:block;list-style:none;margin-top:28px;max-width:46ch}
+  .hero-list li{position:relative;padding:9px 0 9px 28px;color:var(--muted);font-size:15.5px;border-bottom:1px solid var(--line)}
+  .hero-list li:last-child{border-bottom:0}
+  .hero-list li::before{content:"\2726";position:absolute;left:2px;color:var(--gold)}
+}
 
 /* card da oferta */
 .offer{background:var(--panel2);border:1px solid rgba(216,174,94,.34);border-radius:16px;padding:18px;box-shadow:var(--glow)}
@@ -173,6 +180,13 @@ footer{padding:34px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)
           <span class="chip">Spiritual</span>
           <span class="chip">Energetic</span>
         </div>
+
+        <ul class="hero-list">
+          <li>One hour, live, one to one, in English.</li>
+          <li>A read of three layers at once: what is psychological, what is spiritual, what is energetic.</li>
+          <li>What you carry yourself, and what is coming from the people around you.</li>
+          <li>You leave with the main points and what to do about each one.</li>
+        </ul>
       </div>
 
       <div class="offer">
