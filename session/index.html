@@ -205,7 +205,9 @@ footer{padding:32px 0 44px;text-align:center;font-size:12.5px;color:var(--muted)
     <p class="oneclick">One click &middot; same card &middot; nothing to type again</p>
 
     <div id="upsell-cta">
-      <!-- HOTMART_FUNNEL_WIDGET -->
+      <!-- HOTMART - Sales Funnel Widget -->
+      <div id="hotmart-sales-funnel"></div>
+      <!-- HOTMART - Sales Funnel Widget -->
       <p class="widget-fallback">Loading your options...</p>
     </div>
 
@@ -235,6 +237,10 @@ footer{padding:32px 0 44px;text-align:center;font-size:12.5px;color:var(--muted)
 
 <footer>Ascensional Alchemy Initiatic School</footer>
 
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+<script>
+  checkoutElements.init("salesFunnel").mount("#hotmart-sales-funnel");
+</script>
 <script>
 (function () {
   /* o widget da Hotmart injeta os botoes de sim/nao dentro de #upsell-cta.
