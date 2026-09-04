@@ -69,7 +69,9 @@ p{margin-bottom:14px}
 #upsell-cta{min-height:64px;display:flex;flex-direction:column;align-items:center;gap:12px}
 #upsell-cta a,#upsell-cta button{display:block!important;width:100%;max-width:460px;font-family:Inter,system-ui,sans-serif!important;font-weight:600!important;font-size:16.5px!important;letter-spacing:.03em;color:#1d1405!important;text-decoration:none!important;text-transform:uppercase;background:linear-gradient(180deg,#E8C377,#B08030)!important;border:0!important;padding:17px 26px!important;border-radius:10px!important;box-shadow:0 10px 34px rgba(176,128,48,.32);text-align:center;cursor:pointer}
 #upsell-cta a:nth-of-type(2),#upsell-cta button:nth-of-type(2){background:none!important;box-shadow:none!important;color:var(--muted)!important;text-transform:none!important;font-weight:400!important;font-size:14.5px!important;text-decoration:underline!important;padding:4px 0!important}
-.widget-fallback{font-size:13.5px;color:var(--muted)}
+#upsell-cta #hotmart-sales-funnel{width:100%;max-width:460px}
+#upsell-cta iframe{width:100%;border:0;display:block}
+.widget-fallback{font-size:13.5px;color:var(--muted);max-width:44ch;line-height:1.5}
 
 /* bullets / cards */
 .bullets{list-style:none;text-align:left;max-width:560px;margin:0 auto 18px}
@@ -243,33 +245,30 @@ footer{padding:32px 0 44px;text-align:center;font-size:12.5px;color:var(--muted)
 </script>
 <script>
 (function () {
-  /* o widget da Hotmart injeta os botoes de sim/nao dentro de #upsell-cta.
-     quando aparecerem, some com o texto de carregando e marca o clique. */
+  /* O widget da Hotmart monta um IFRAME cross-origin (pay.hotmart.com/funnel)
+     dentro de #hotmart-sales-funnel. Nao da para ler nem escutar clique la
+     dentro. Entao aqui so escondemos o texto de carregando quando o iframe
+     aparece. A aceitacao do upsell e medida pelo evento Purchase que a
+     propria Hotmart manda pela CAPI na transacao de USD 97. */
   var box = document.getElementById("upsell-cta");
-  var fb  = box.querySelector(".widget-fallback");
+  var fb  = box ? box.querySelector(".widget-fallback") : null;
+  if (!box || !fb) return;
 
-  function hideFallback() {
-    if (fb && box.querySelector("a, button")) { fb.style.display = "none"; }
+  function check() {
+    if (box.querySelector("iframe")) { fb.style.display = "none"; return true; }
+    return false;
   }
-  hideFallback();
+  if (check()) return;
   if ("MutationObserver" in window) {
-    new MutationObserver(hideFallback).observe(box, { childList: true, subtree: true });
+    var mo = new MutationObserver(function () { if (check()) mo.disconnect(); });
+    mo.observe(box, { childList: true, subtree: true });
   }
-
-  box.addEventListener("click", function (e) {
-    var el = e.target.closest("a, button");
-    if (!el || !box.contains(el)) return;
-    var first = box.querySelector("a, button");
-    var accepted = (el === first);
-    if (window.fbq) {
-      fbq("trackCustom", accepted ? "UpsellClick" : "UpsellDecline",
-          { content_name: "Private Session with Durga Shakti", value: accepted ? 97 : 0, currency: "USD" });
+  /* se em 12s nada montou, avisa em vez de deixar carregando pra sempre */
+  setTimeout(function () {
+    if (!box.querySelector("iframe")) {
+      fb.textContent = "If your options do not appear, refresh this page. Your Let Go for Good purchase is already confirmed either way.";
     }
-    if (window.gtag) {
-      gtag("event", accepted ? "select_promotion" : "upsell_decline",
-           { promotion_name: "Private Session OTO", value: accepted ? 97 : 0, currency: "USD" });
-    }
-  }, true);
+  }, 12000);
 })();
 </script>
 </body>
