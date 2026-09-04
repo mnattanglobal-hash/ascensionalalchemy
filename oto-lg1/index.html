@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One thing before you start</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+<meta name="referrer" content="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PS60JZBFM7"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag("js", new Date());
+gtag("config", "G-PS60JZBFM7");
+</script>
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+fbq("init", "1371442984885022");
+fbq("track", "PageView");
+fbq("trackCustom", "UpsellView", {content_name:"Private Session with Durga Shakti", content_ids:["8456041"], value:97, currency:"USD"});
+</script>
+
+<style>
+:root{
+  --bg:#0E0B08; --panel:#17110A; --panel2:#1D1509;
+  --ink:#F3EAD8; --muted:#B7A788; --line:rgba(216,174,94,.20);
+  --gold:#D8AE5E; --gold-deep:#B08030; --bronze:#704010; --cream:#E0D090;
+  --glow:0 0 28px rgba(176,128,48,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.65;font-size:16.5px}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.mid{max-width:900px;margin:0 auto}
+section{padding:56px 0}
+.band{background:var(--panel)}
+.eyebrow{font-family:Cinzel,Georgia,serif;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;line-height:1.12;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:clamp(27px,4.4vw,50px)}
+h2{font-size:clamp(24px,3.2vw,36px);margin-bottom:18px}
+h3{font-size:21px;margin-bottom:8px}
+p{margin-bottom:14px}
+.muted{color:var(--muted)}
+.center{text-align:center}
+b,strong{color:var(--ink)}
+
+/* ---------- 1. confirmacao ---------- */
+.confirmed{background:#12200F;border-bottom:1px solid rgba(140,200,120,.22);padding:12px 0}
+.confirmed .wrap{display:flex;gap:11px;align-items:flex-start}
+.confirmed .tick{color:#8FCB7A;font-size:18px;line-height:1.25;flex:none}
+.confirmed b{display:block;font-size:15px;margin-bottom:1px;color:#EAF2E6}
+.confirmed span{font-size:13px;color:#A9BBA0;line-height:1.45}
+
+/* ---------- 2. primeira dobra ---------- */
+.hero{padding:30px 0 44px}
+.brand img{height:28px;opacity:.9;margin-bottom:20px}
+.hero-grid{display:grid;grid-template-columns:1fr;gap:26px;align-items:start}
+@media (min-width:940px){
+  .hero{padding:38px 0 64px}
+  .hero-grid{grid-template-columns:1.12fr .88fr;gap:52px}
+}
+.lede{font-size:17.5px;color:var(--muted);margin:14px 0 16px;max-width:46ch}
+.lede b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.chip{font-family:Cinzel,Georgia,serif;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);border:1px solid var(--line);border-radius:999px;padding:6px 13px}
+
+/* card da oferta */
+.offer{background:var(--panel2);border:1px solid rgba(216,174,94,.34);border-radius:16px;padding:18px;box-shadow:var(--glow)}
+@media (min-width:940px){.offer{padding:26px;position:sticky;top:22px}}
+.offer .tag{font-family:Cinzel,Georgia,serif;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px}
+.offer .price{font-family:"Cormorant Garamond",Georgia,serif;font-size:44px;font-weight:700;color:var(--gold);line-height:1;display:inline-block}
+.offer .price small{font-family:Inter,sans-serif;font-size:13.5px;font-weight:400;color:var(--muted);margin-left:9px;letter-spacing:0}
+.offer .cred{font-size:12.5px;color:var(--muted);border-top:1px solid var(--line);margin-top:12px;padding-top:11px}
+.offer .fine{font-size:12.5px;color:var(--muted);margin:12px 0 0;text-align:center;line-height:1.5}
+
+/* widget da hotmart (iframe cross-origin) */
+#upsell-cta{margin-top:14px}
+#hotmart-sales-funnel{width:100%}
+#upsell-cta iframe{width:100%;border:0;display:block}
+.widget-fallback{font-size:13px;color:var(--muted);text-align:center;line-height:1.5;padding:14px 0}
+
+/* ---------- blocos ---------- */
+.cols3{display:grid;gap:16px;grid-template-columns:1fr}
+@media (min-width:760px){.cols3{grid-template-columns:repeat(3,1fr);gap:20px}}
+.card{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:22px}
+.card .n{font-family:Cinzel,Georgia,serif;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:10px}
+.card p{font-size:15.5px;color:var(--muted);margin-bottom:0}
+
+.bullets{list-style:none;max-width:720px;margin:0 auto}
+.bullets li{padding:12px 0 12px 32px;position:relative;border-bottom:1px solid var(--line)}
+.bullets li:last-child{border-bottom:0}
+.bullets li::before{content:"\2726";position:absolute;left:4px;color:var(--gold)}
+
+.who{display:grid;grid-template-columns:1fr;gap:24px;align-items:center}
+@media (min-width:760px){.who{grid-template-columns:250px 1fr;gap:40px}}
+.who img{width:100%;border-radius:12px;border:1px solid var(--line)}
+.stats{display:grid;gap:14px;grid-template-columns:1fr;margin-top:24px}
+@media (min-width:660px){.stats{grid-template-columns:repeat(3,1fr)}}
+.stat b{display:block;font-family:"Cormorant Garamond",Georgia,serif;font-size:25px;color:var(--gold)}
+.stat span{font-size:14px;color:var(--muted)}
+
+.pull{border-left:2px solid var(--gold);padding:6px 0 6px 22px;max-width:820px;margin:0 auto}
+.pull em{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(19px,2.2vw,25px);line-height:1.42;display:block}
+.pull b{display:block;margin-top:12px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-family:Cinzel,Georgia,serif;font-weight:500}
+
+.steps{list-style:none;max-width:720px;margin:0 auto}
+.steps li{padding:13px 0 13px 26px;position:relative;border-left:1px solid var(--line)}
+.steps li::before{content:"";position:absolute;left:-5px;top:21px;width:9px;height:9px;border-radius:50%;background:var(--gold)}
+.steps b{font-family:Cinzel,Georgia,serif;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);display:block}
+
+details{border-bottom:1px solid var(--line);padding:4px 0;max-width:820px;margin:0 auto}
+details summary{cursor:pointer;font-weight:600;padding:13px 0;list-style:none;position:relative;padding-right:28px}
+details summary::-webkit-details-marker{display:none}
+details summary::after{content:"+";position:absolute;right:4px;color:var(--gold);font-size:20px;line-height:1}
+details[open] summary::after{content:"\2013"}
+details p{color:var(--muted);padding-bottom:12px;margin-bottom:0}
+
+.backup{display:inline-block;font-weight:600;font-size:15.5px;letter-spacing:.03em;color:#1d1405;text-decoration:none;text-transform:uppercase;background:linear-gradient(180deg,#E8C377,#B08030);padding:15px 32px;border-radius:999px;box-shadow:var(--glow)}
+footer{padding:34px 0 46px;text-align:center;font-size:12.5px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<!-- ============ 1. COMPRA CONFIRMADA ============ -->
+<div class="confirmed">
+  <div class="wrap">
+    <span class="tick">&#10003;</span>
+    <div>
+      <b>Payment approved. Let Go for Good is on its way to your inbox.</b>
+      <span>Nothing on this page changes that. If the email is not there in five minutes, check your spam folder.</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ 2. PRIMEIRA DOBRA: OFERTA + BOTAO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="brand"><img src="../let-go/img/Alquimia-Logo-Horizontal-OffWhite.png" alt="Ascensional Alchemy"></div>
+    <div class="hero-grid">
+
+      <div>
+        <p class="eyebrow">One time offer &middot; this page only</p>
+        <h1>You just handled the attachment. Do you want to see the rest?</h1>
+        <p class="lede">One hour with me, live and in English. Not about that one person. <b>A full read of your life right now</b>, and what is quietly working against you in it.</p>
+        <div class="chips">
+          <span class="chip">Psychological</span>
+          <span class="chip">Spiritual</span>
+          <span class="chip">Energetic</span>
+        </div>
+      </div>
+
+      <div class="offer">
+        <span class="tag">Private session with Durga</span>
+        <span class="price">$97<small>one hour, one to one</small></span>
+
+        <div id="upsell-cta">
+          <!-- HOTMART - Sales Funnel Widget -->
+          <div id="hotmart-sales-funnel"></div>
+          <!-- HOTMART - Sales Funnel Widget -->
+          <p class="widget-fallback">Loading your options...</p>
+        </div>
+
+        <p class="fine">One click. Same card. Nothing to type again. Charged as a separate transaction, taxes included.</p>
+        <p class="cred">Durga Shakti Saraswati, founder of the Ascensional Alchemy School. 18 years, students in 15+ countries, 22 nationalities.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. O QUE A HORA COBRE ============ -->
+<section class="band">
+  <div class="wrap">
+    <div class="mid center" style="margin-bottom:30px">
+      <h2>Most of what is holding you back is not the thing you noticed.</h2>
+      <p class="muted">Let Go for Good does its job on the attachment. But an attachment is rarely the only thing running. In one hour Durga reads three layers of you at once, and tells you which ones are actually costing you something.</p>
+    </div>
+    <div class="cols3">
+      <div class="card">
+        <span class="n">Psychological</span>
+        <h3>The patterns you repeat</h3>
+        <p>The automatic behaviors and the beliefs you inherited without choosing them. The ones that keep producing the same result in love, in work, in money, and that you stopped being able to see because they feel like your personality.</p>
+      </div>
+      <div class="card">
+        <span class="n">Spiritual</span>
+        <h3>Where you actually are</h3>
+        <p>What point of your own journey you are standing on right now, read through the archetypes. This is where the far from obvious view comes from, and where things you could not name finally get a name.</p>
+      </div>
+      <div class="card">
+        <span class="n">Energetic</span>
+        <h3>What is yours and what is not</h3>
+        <p>Some of what weighs on you is yours. Some of it came from the people around you and you took it as your own. Knowing which is which changes what you do about it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. O QUE VOCE LEVA ============ -->
+<section>
+  <div class="wrap">
+    <h2 class="center">What you walk away with</h2>
+    <ul class="bullets">
+      <li><b>The main points to work on, named out loud.</b> Not a vague reading. The specific things that are getting in your way, in order of what matters most.</li>
+      <li><b>What is influencing you without your permission.</b> Both what you carry yourself and what is coming from other people in your life.</li>
+      <li><b>Your own strengths recognized</b>, so you go through what is coming with ground under your feet instead of guessing.</li>
+      <li><b>A practical direction for each one.</b> Not a verdict to carry home. What to actually do next.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 5. QUEM E A DURGA ============ -->
+<section class="band">
+  <div class="wrap">
+    <p class="eyebrow center">Who you will be talking to</p>
+    <div class="who mid">
+      <img src="../let-go/img/durga_solo.jpg" alt="Durga Shakti Saraswati" loading="lazy">
+      <div>
+        <h2 style="margin-bottom:12px">Durga Shakti Saraswati</h2>
+        <p>Founder of the Ascensional Alchemy School. Immersed in the I Ching since she was sixteen and in Tarot since eighteen, she developed a rare sensitivity for reading the archetypes that rule a human life.</p>
+        <p><b>More than interpreting symbols, Durga sees exactly at what point of the journey you are, unmasking the illusions we create about ourselves.</b></p>
+        <p class="muted" style="margin-bottom:0">Whether for those who feel less or those who think they are more, she helps you see yourself at your real size. Her path unites her training in Transpersonal Psychology with decades of work in the mysteries.</p>
+      </div>
+    </div>
+    <div class="stats mid">
+      <div class="card stat"><b>18 years</b><span>helping women break out of attachment patterns and toxic relationships.</span></div>
+      <div class="card stat"><b>22 nationalities</b><span>students from over 15 countries, working regularly in Europe since 2015.</span></div>
+      <div class="card stat"><b>Thousands</b><span>of people trained and cared for by the Ascensional Alchemy School.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. VERBATIM ============ -->
+<section>
+  <div class="wrap">
+    <div class="pull">
+      <em>"Attachment is the origin of every pain. If you want a real relationship, you have to learn this. While you do not learn to let go, the healthy relationship does not show up. Attachment and neediness have a smell. The instinct notices, and the person slips through your hand like a fish."</em>
+      <b>Durga Shakti Saraswati</b>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 7. COMO FUNCIONA ============ -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="center">How it works</h2>
+    <ol class="steps">
+      <li><b>The session</b>One full hour, live, online, over video call, in English. Just you and Durga.</li>
+      <li><b>Your time</b>You pick your day and time right after you confirm, from the hours Durga has open. Every time is shown in your own time zone.</li>
+      <li><b>What to bring</b>The question that is actually bothering you. Nothing else to prepare.</li>
+    </ol>
+    <p class="center muted mid" style="margin-top:22px">Durga teaches, writes and runs the School. She opens a small number of private hours each week, and this offer appears once, here. It is not on any other page.</p>
+  </div>
+</section>
+
+<!-- ============ 8. GARANTIA ============ -->
+<section>
+  <div class="wrap mid center">
+    <h2>Seven day guarantee, counted from the day of your session.</h2>
+    <p class="muted">Not from today. From the day you and Durga actually meet. If the hour gives you nothing, write to <b>contact@ascensionalalchemy.com</b> and we give every cent back.</p>
+  </div>
+</section>
+
+<!-- ============ 9. FAQ ============ -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="center">Before you decide</h2>
+    <details><summary>I just bought Let Go for Good. Do I need this too?</summary><p>No. Let Go for Good is complete and it works on its own, on the attachment you came here for. This is a different thing: it goes wider, into everything else that is running underneath.</p></details>
+    <details><summary>What language is the session in?</summary><p>English. Durga runs the full hour in English, one to one with you.</p></details>
+    <details><summary>Can I choose the time?</summary><p>Yes. Right after you confirm you pick from the hours Durga has open, and every time is shown in your own time zone.</p></details>
+    <details><summary>What if something comes up and I cannot make it?</summary><p>Write to contact@ascensionalalchemy.com and we sort it out with you.</p></details>
+    <details><summary>Is this therapy?</summary><p>No. It is a reading of your moment and a direction for what to do next. It does not replace medical or psychological care.</p></details>
+    <details><summary>How is it charged?</summary><p>As a separate transaction on the same payment method you just used. You do not enter your card again.</p></details>
+  </div>
+</section>
+
+<!-- ============ 10. FECHO ============ -->
+<section>
+  <div class="wrap center">
+    <h2 class="mid">One hour, and you stop guessing what is in your way.</h2>
+    <p class="muted mid" style="margin-bottom:26px">This offer is on this page and nowhere else. If you would rather just start the practice you already bought, the option to decline is right there in the box.</p>
+    <a class="backup" href="#upsell-cta">Take me back to the offer</a>
+  </div>
+</section>
+
+<footer>Ascensional Alchemy Initiatic School</footer>
+
+<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+<script>
+  checkoutElements.init("salesFunnel").mount("#hotmart-sales-funnel");
+</script>
+<script>
+(function () {
+  /* O widget da Hotmart monta um IFRAME cross-origin (pay.hotmart.com/funnel).
+     Nao da pra ler nem escutar clique la dentro, entao aqui so escondemos o
+     texto de carregando quando o iframe aparece. A adesao e medida pelo
+     Purchase que a Hotmart manda pela CAPI na transacao de USD 97. */
+  var box = document.getElementById("upsell-cta");
+  var fb  = box ? box.querySelector(".widget-fallback") : null;
+  if (!box || !fb) return;
+
+  function check() {
+    if (box.querySelector("iframe")) { fb.style.display = "none"; return true; }
+    return false;
+  }
+  if (check()) return;
+  if ("MutationObserver" in window) {
+    var mo = new MutationObserver(function () { if (check()) mo.disconnect(); });
+    mo.observe(box, { childList: true, subtree: true });
+  }
+  setTimeout(function () {
+    if (!box.querySelector("iframe")) {
+      fb.textContent = "If your options do not appear, refresh this page. Your Let Go for Good purchase is already confirmed either way.";
+    }
+  }, 12000);
+})();
+</script>
+</body>
+</html>
